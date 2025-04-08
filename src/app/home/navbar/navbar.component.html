@@ -1,0 +1,29 @@
+
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">Customer Management System</div>
+      <ul class="nav-menu">
+        <li class="nav-item"><a routerLink=""
+        routerLinkActive="active"
+        >Home</a></li>
+        @if(!isAdmin){
+          <li class="nav-item">
+              <a routerLink="/add"
+              routerLinkActive="active"
+             >Add</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/my-books"
+              routerLinkActive="active"
+              >My List</a>
+            </li>
+        }
+        <li class="nav-item" id="userDropdownContainer">
+              <button class="logout-btn" id="logoutBtn" (click)="logoutUser()">Logout</button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  

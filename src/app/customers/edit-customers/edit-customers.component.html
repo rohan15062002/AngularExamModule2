@@ -1,0 +1,80 @@
+<div class="form-container">
+    <h1>Add New Customer</h1>
+    <form [formGroup]=" editFormGroup" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Customer Name</label>
+        <input
+          type="text"
+          id="name"
+          formControlName="name" 
+          placeholder="Enter Customer Name"
+        />
+        <div
+        class="error-message"
+        *ngIf="
+        editFormGroup.get('name')?.invalid &&  editFormGroup.get('name')?.touched
+        "
+      >
+        Customer name is required
+      </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Customer Email</label>
+        <input
+          id="email"
+          formControlName="email"
+          type="email"
+          placeholder="Enter Customer Email"
+        />
+        <div
+        class="error-message"
+        *ngIf="
+        editFormGroup.get('email')?.invalid &&  editFormGroup.get('email')?.touched
+        "
+      >
+        Customer email is required
+      </div>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input
+          id="phoneNumber"
+          formControlName="phoneNumber"
+          placeholder="Enter Customer Phone Number"
+        />
+        <div
+        class="error-message"
+        *ngIf="
+        editFormGroup.get('phoneNumber')?.invalid &&  editFormGroup.get('phoneNumber')?.touched
+        "
+      >
+        Customer phone number is required
+      </div>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Address</label>
+        <input
+          id="address"
+          formControlName="address"
+          placeholder="Enter Customer Address"
+        />
+        <div
+        class="error-message"
+        *ngIf="
+        editFormGroup.get('address')?.invalid &&  editFormGroup.get('address')?.touched
+        "
+      >
+        Customer address is required
+      </div>
+      </div>
+      
+  
+      <button type="submit" class="submit-btn" [disabled]=" editFormGroup.invalid">
+        Save
+      </button>
+    </form>
+  </div>
+  

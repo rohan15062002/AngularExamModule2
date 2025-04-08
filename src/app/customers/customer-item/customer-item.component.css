@@ -1,0 +1,85 @@
+
+
+    /* Cards Container */
+    .cards-container {
+        gap: 1rem;
+        padding: 1.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+    
+      /* Individual Card */
+      .card {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+    
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+    
+      /* Card Header */
+      .card-header {
+        background-color: #2c3e50;
+        color: white;
+        padding: 1rem;
+      }
+    
+      .card-header h3 {
+        margin: 0;
+        font-size: 1.25rem;
+      }
+    
+      /* Card Body */
+      .card-body {
+        padding: 1.5rem;
+      }
+    
+      .card-body p {
+        margin: 0.5rem 0;
+        color: #555;
+      }
+    
+      .card-body strong {
+        color: #333;
+      }
+    
+      /* Card Footer */
+      .card-footer {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+        border-top: 1px solid #eee;
+        background-color: #f8f9fa;
+      }
+  
+    
+      /* Action Buttons */
+      .action-btn {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 4px;
+        background-color: #3498db;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+    
+      .action-btn:hover {
+        background-color: #2980b9;
+      }
+    
+      .action-btn.edit {
+        background-color: #f39c12;
+      }
+    
+      .action-btn.edit:hover {
+        background-color: #e67e22;
+      }
+    
+    
+    

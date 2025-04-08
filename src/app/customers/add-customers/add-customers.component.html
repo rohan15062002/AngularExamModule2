@@ -1,0 +1,80 @@
+<div class="form-container">
+    <h1>Add New Customer</h1>
+    <form [formGroup]=" newCustomerForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Customer Name</label>
+        <input
+          type="text"
+          id="name"
+          formControlName="name" 
+          placeholder="Enter Customer Name"
+        />
+        <div
+        class="error-message"
+        *ngIf="
+        newCustomerForm.get('name')?.invalid &&  newCustomerForm.get('name')?.touched
+        "
+      >
+        Customer name is required
+      </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Customer Email</label>
+        <input
+          id="email"
+          formControlName="email"
+          type="email"
+          placeholder="Enter Customer Email"
+        />
+        <div
+        class="error-message"
+        *ngIf="
+        newCustomerForm.get('email')?.invalid &&  newCustomerForm.get('email')?.touched
+        "
+      >
+        Customer email is required
+      </div>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input
+          id="phoneNumber"
+          formControlName="phoneNumber"
+          placeholder="Enter Customer Phone Number"
+        />
+        <div
+        class="error-message"
+        *ngIf="
+        newCustomerForm.get('phoneNumber')?.invalid &&  newCustomerForm.get('phoneNumber')?.touched
+        "
+      >
+        Customer phone number is required
+      </div>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Address</label>
+        <input
+          id="address"
+          formControlName="address"
+          placeholder="Enter Customer Address"
+        />
+        <div
+        class="error-message"
+        *ngIf="
+        newCustomerForm.get('address')?.invalid &&  newCustomerForm.get('address')?.touched
+        "
+      >
+        Customer address is required
+      </div>
+      </div>
+      
+  
+      <button type="submit" class="submit-btn" [disabled]=" newCustomerForm.invalid">
+        Add Customer
+      </button>
+    </form>
+  </div>
+  

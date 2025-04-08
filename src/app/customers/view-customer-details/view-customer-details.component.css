@@ -1,0 +1,114 @@
+      /* Base Styles */
+      .book-body{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f5f7fa;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 80vh;
+        color: #333;
+    }
+
+    /* book Container */
+    .book-container {
+        width: 90%;
+        max-width: 800px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        margin: 20px 0;
+    }
+
+    /* book Header */
+    .book-header {
+        padding: 25px;
+        border-bottom: 1px solid #eee;
+        text-align: center;
+    }
+
+    .book-title {
+        margin: 0;
+        color: #2c3e50;
+        font-size: 2rem;
+    }
+
+    .book-type {
+        display: inline-block;
+        background-color: #e74c3c;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-top: 10px;
+        text-transform: uppercase;
+    }
+    .book-type__science{
+        background-color: #ffa500;
+    }
+    
+    .book-type__fiction{
+        background-color: #ff5733;
+    }
+    
+    .book-type__non-fiction{
+        background-color: #2e8b57;
+    }
+    /* book Content */
+    .book-content {
+        padding: 25px;
+        line-height: 1.6;
+    }
+
+    .book-details {
+        margin-bottom: 20px;
+    }
+
+    /* Action Buttons */
+    .action-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        padding: 20px;
+        border-top: 1px solid #eee;
+    }
+
+    .action-btn {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        min-width: 100px;
+    }
+
+    .back-btn {
+        background-color: #3498db;
+        color: white;
+    }
+
+    .back-btn:hover {
+        background-color: #2980b9;
+    }
+
+    .edit-btn {
+        background-color: #f39c12;
+        color: white;
+    }
+
+    .edit-btn:hover {
+        background-color: #e67e22;
+    }
+
+    .delete-btn {
+        background-color: #e74c3c;
+        color: white;
+    }
+
+    .delete-btn:hover {
+        background-color: #c0392b;
+    }
