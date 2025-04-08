@@ -8,24 +8,23 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [],
   templateUrl: './customer-item.component.html',
-  styleUrl: './customer-item.component.css'
+  styleUrl: './customer-item.component.css',
 })
 export class CustomerItemComponent {
-  constructor(private authService:AuthService,private router:Router){}
+  constructor(private authService: AuthService, private router: Router) {}
 
-  @Input({required:true}) customer!: Customer;
-  
-  get isAdmin(){
+  @Input({ required: true }) customer!: Customer;
+
+  get isAdmin() {
     return this.authService.isAdmin();
   }
-  
-  onView(){
-    console.log(this.customer.id)
-    return this.router.navigate(["view",this.customer.id]);
+
+  onView() {
+    console.log(this.customer.id);
+    return this.router.navigate(['view', this.customer.id]);
   }
 
-  onEdit(){
-    return this.router.navigate(["edit",this.customer.id]);
+  onEdit() {
+    return this.router.navigate(['edit', this.customer.id]);
   }
- 
 }

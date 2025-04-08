@@ -1,0 +1,20 @@
+*{
+    font-family: 'Segoe UI', Tahoma,Verdana, sans-serif;
+}
+
+h1{
+    text-align: center;
+}
+
+.container{
+    font-family: 'Segoe UI', Tahoma,Verdana, sans-serif;
+    max-width: 800px;      /* adjust this to your desired width */
+    margin: 0 auto;        /* centers the container */
+    padding: 16px;
+}
+
+.empty {
+    color: gray;
+    font-style: italic;
+    margin-top: 20px;
+  }

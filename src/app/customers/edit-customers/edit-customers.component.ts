@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { Customer } from '../../app.model';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CustomersService } from '../customers.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-edit-customers',
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule,NgIf],
   templateUrl: './edit-customers.component.html',
   styleUrl: './edit-customers.component.css'
 })
@@ -38,16 +39,25 @@ export class EditCustomersComponent {
     console.log(this.editFormGroup)
   }
 
-  isFormDirty():boolean {
+  // isFormDirty():boolean {
+  //   return (
+  //     JSON.stringify(this.customer) ===
+  //     JSON.stringify({
+  //       id: this.editFormGroup.value.id||
+  //       name: this.editFormGroup.value.name||
+  //       email: this.editFormGroup.value.email||
+  //       phoneNumber: this.editFormGroup.value.phoneNumber||
+  //       address: this.editFormGroup.value.address||
+  //     })
+  //   );
+  // }
+
+  isFormDirty(): boolean {
     return (
-      JSON.stringify(this.customer) ===
-      JSON.stringify({
-        id: this.editFormGroup.value.id,
-        name: this.editFormGroup.value.name,
-        email: this.editFormGroup.value.email,
-        phoneNumber: this.editFormGroup.value.phoneNumber,
-        address: this.editFormGroup.value.address,
-      })
+      this.editFormGroup.value.name !== this.customer?.name ||
+      this.editFormGroup.value.email !== this.customer?.email ||
+      this.editFormGroup.value.phoneNumber !== this.customer?.phoneNumber ||
+      this.editFormGroup.value.address !== this.customer?.address 
     );
   }
 

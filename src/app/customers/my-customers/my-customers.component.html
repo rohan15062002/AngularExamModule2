@@ -1,0 +1,9 @@
+<div>
+    <h1>List Of Added Customer</h1>
+    @if(myCustomers.length === 0){
+    <div class="empty">No Customer Added!</div>
+    }@for(customer of myCustomers; track customer.id){
+    <app-customer-item [customer]="customer"></app-customer-item>
+    }
+  </div>
+  

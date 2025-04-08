@@ -7,13 +7,13 @@ import { CustomersService } from '../customers.service';
   standalone: true,
   imports: [CustomerItemComponent],
   templateUrl: './all-customers.component.html',
-  styleUrl: './all-customers.component.css'
+  styleUrl: './all-customers.component.css',
 })
 export class AllCustomersComponent {
-   constructor(private customerService:CustomersService){}
+  constructor(private customerService: CustomersService) {}
 
-   get customers(){
-    console.log(this.customerService.getAllCustomers())
+  get customers() {
+    console.log(this.customerService.getAllCustomers());
     return this.customerService.getAllCustomers();
-   }
+  }
 }

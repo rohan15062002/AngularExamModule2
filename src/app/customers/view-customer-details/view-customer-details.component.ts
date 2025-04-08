@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
 import { CustomersService } from '../customers.service';
 import { AuthService } from '../../auth/auth.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-view-customer-details',
   standalone: true,
-  imports: [],
+  imports: [RouterLink,NgIf],
   templateUrl: './view-customer-details.component.html',
-  styleUrl: './view-customer-details.component.css'
+  styleUrl: './view-customer-details.component.css',
 })
 export class ViewCustomerDetailsComponent {
   id!: string | null;
@@ -16,7 +17,7 @@ export class ViewCustomerDetailsComponent {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.id = id;
-    console.log(this.id)
+    console.log(this.id);
   }
 
   constructor(
@@ -25,7 +26,7 @@ export class ViewCustomerDetailsComponent {
     private router: Router,
     private route: ActivatedRoute
   ) {}
-  
+
   get customerDetails() {
     return this.customerService.getAllCustomers().find((c) => c.id === this.id);
   }
@@ -33,13 +34,33 @@ export class ViewCustomerDetailsComponent {
   get isAdmin() {
     return this.authService.isAdmin();
   }
+  
+  showConfirmDialog = false;
 
-  onDelete() {
-    this.customerService.deleteCustomer(this.id!);
-    this.router.navigate([""]);
-  }
+ onDelete() {
+  this.showConfirmDialog = true;
+}
 
-  onEdit(){
-    return this.router.navigate(["edit",this.id!])
+confirmDelete() {
+  this.customerService.deleteCustomer(this.id!);
+  this.router.navigate([""]);
+}
+
+cancelDelete() {
+  this.showConfirmDialog = false;
+}
+
+  // onDelete() {
+  //   const confirmDelete = window.confirm(
+  //     'Are you sure you want to delete this?'
+  //   );
+  //   if (confirmDelete) {
+  //     this.customerService.deleteCustomer(this.id!);
+  //     this.router.navigate(['']);
+  //   }
+  // }
+
+  onEdit() {
+    return this.router.navigate(['edit', this.id!]);
   }
 }

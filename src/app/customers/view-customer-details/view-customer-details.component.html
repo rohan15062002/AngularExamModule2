@@ -2,8 +2,6 @@
     <div class="book-container">
         <div class="book-header">
             <h1 class="book-title">{{customerDetails?.name}}</h1>
-              <span class="book-type"
-              >{{"Available"}}</span>
         </div>
         
         <div class="book-content">
@@ -21,13 +19,26 @@
         <div class="action-buttons">
             <button class="action-btn back-btn" routerLink="" >Back</button>
             @if(isAdmin){
-              <button class="action-btn delete-btn" (click)="onDelete()">Delete</button>
+              <button class="action-btn delete-btn" (click)="onDelete()">Delete</button>  
             }@else{
                <button class="action-btn edit-btn" (click)="onEdit()">Edit</button>
             }
         </div>
+        <!-- Confirmation Dialog -->
+<div *ngIf="showConfirmDialog" class="modal-overlay">
+  <div class="modal-content">
+    <p>Are you sure you want to delete <strong>{{ customerDetails?.name }}</strong>?</p>
+    <div class="modal-actions">
+      <button class="action-btn confirm-btn" (click)="confirmDelete()">Yes</button>
+      <button class="action-btn cancel-btn" (click)="cancelDelete()">No</button>
+    </div>
+  </div>
+</div>
+
     </div>
     </div>
+
+    
   
   
   

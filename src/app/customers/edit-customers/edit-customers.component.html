@@ -72,7 +72,7 @@
       </div>
       
   
-      <button type="submit" class="submit-btn" [disabled]=" editFormGroup.invalid">
+      <button type="submit" class="submit-btn" [disabled]="!isFormDirty() || !editFormGroup.valid">
         Save
       </button>
     </form>

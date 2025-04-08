@@ -37,6 +37,7 @@ export class CustomersService {
     }
     return JSON.parse(localStorage.getItem('customers')!);
   }
+
   getMyCustomersFromLocalStorage(userId: string): Customer[] {
     if (!localStorage.getItem(userId)) {
       return [];
@@ -46,11 +47,17 @@ export class CustomersService {
   
   addCustomer(customer:Customer){
     this.customers.push(customer);
+    this.myCustomers.push(customer);
     this.saveCustomersToLocalStorage();
+    this.saveMyCustomerToLocalStorage(this.authService.getUserId());
   }
 
   getAllCustomers(): Customer[] {
     return this.customers;
+  }
+
+  getMyCustomers(): Customer[]{
+    return this.myCustomers;
   }
 
   deleteCustomer(id: string): void {
