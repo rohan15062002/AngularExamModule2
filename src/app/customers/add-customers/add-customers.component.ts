@@ -1,6 +1,7 @@
 import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import {
+  EmailValidator,
   FormControl,
   FormGroup,
   ReactiveFormsModule,
@@ -26,8 +27,8 @@ export class AddCustomersComponent {
 
   newCustomerForm = new FormGroup({
     name: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.required),
-    phoneNumber: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required,Validators.email]),
+    phoneNumber: new FormControl<any>('', Validators.required),
     address: new FormControl('', Validators.required),
   });
 

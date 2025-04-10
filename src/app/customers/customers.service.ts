@@ -57,7 +57,9 @@ export class CustomersService {
   }
 
   getMyCustomers(): Customer[]{
-    return this.myCustomers;
+    const userName = this.authService.getUserName();
+    return this.myCustomers.filter((c)=>c.addedByUser===userName)
+    // return this.myCustomers;
   }
 
   deleteCustomer(id: string): void {
@@ -68,7 +70,7 @@ export class CustomersService {
   }
 
   updateCustomer(customer:Customer){
-    this.customers=this.customers.map((NewCustomer)=>(customer.id==customer.id? customer : NewCustomer))
+    this.customers=this.customers.map((NewCustomer)=>(NewCustomer.id==customer.id? customer : NewCustomer))
     this.saveCustomersToLocalStorage();
   }
 }
